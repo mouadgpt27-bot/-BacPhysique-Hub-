@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 BacPhysique Hub — 2BAC PC BIOF</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- ======================== LOADING SCREEN ======================== -->
+<div id="loading-screen">
+    <div class="loader-content">
+        <div class="atom-loader">
+            <div class="nucleus"></div>
+            <div class="electron electron-1"></div>
+            <div class="electron electron-2"></div>
+            <div class="electron electron-3"></div>
+        </div>
+        <h2>جارٍ تحميل منصتك التعليمية...</h2>
+        <div class="loading-bar">
+            <div class="loading-fill"></div>
+        </div>
+        <p class="loading-tip">💡 نصيحة: الاستمرارية أهم من الكمال</p>
+    </div>
+</div>
+
+<!-- ======================== NAVIGATION ======================== -->
+<nav id="main-nav">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <div class="brand-icon">
+                <i class="fas fa-atom"></i>
+            </div>
+            <div class="brand-text">
+                <h1>BacPhysique Hub</h1>
+                <span>2BAC PC — BIOF 2025</span>
+            </div>
+        </div>
+
+        <div class="nav-links" id="nav-links">
+            <a href="#home" class="nav-link active" data-section="home">
+                <i class="fas fa-home"></i> الرئيسية
+            </a>
+            <a href="#semester1" class="nav-link" data-section="semester1">
+                <i class="fas fa-book-open"></i> الدورة 1
+            </a>
+            <a href="#semester2" class="nav-link" data-section="semester2">
+                <i class="fas fa-book"></i> الدورة 2
+            </a>
+            <a href="#exams" class="nav-link" data-section="exams">
+                <i class="fas fa-file-alt"></i> الامتحانات
+            </a>
+            <a href="#tools" class="nav-link" data-section="tools">
+                <i class="fas fa-tools"></i> الأدوات
+            </a>
+            <a href="#notes" class="nav-link" data-section="notes">
+                <i class="fas fa-sticky-note"></i> ملاحظاتي
+            </a>
+        </div>
+
+        <div class="nav-actions">
+            <!-- Pomodoro Mini -->
+            <button class="nav-btn pomodoro-mini" id="pomodoro-mini-btn" title="مؤقت بومودورو">
+                <i class="fas fa-clock"></i>
+                <span id="pomodoro-mini-display">25:00</span>
+            </button>
+
+            <!-- Music Player Toggle -->
+            <button class="nav-btn music-toggle" id="music-toggle-btn" title="موسيقى التركيز">
+                <i class="fas fa-music"></i>
+            </button>
+
+            <!-- Mobile Menu -->
+            <button class="nav-btn mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Music Player Panel -->
+    <div class="music-panel" id="music-panel">
+        <div class="music-panel-header">
+            <h3><i class="fas fa-headphones"></i> موسيقى التركيز</h3>
+            <button class="close-panel" id="close-music-panel">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="music-tracks">
+            <button class="track-btn active-track" data-track="lofi">
+                <i class="fas fa-coffee"></i> Lo-Fi Beats
+            </button>
+            <button class="track-btn" data-track="rain">
+                <i class="fas fa-cloud-rain"></i> صوت المطر
+            </button>
+            <button class="track-btn" data-track="nature">
+                <i class="fas fa-leaf"></i> أصوات الطبيعة
+            </button>
+            <button class="track-btn" data-track="whitenoise">
+                <i class="fas fa-wind"></i> ضوضاء بيضاء
+            </button>
+        </div>
+        <div class="music-controls">
+            <button class="play-pause-btn" id="play-pause-btn">
+                <i class="fas fa-play"></i>
+            </button>
+            <div class="volume-control">
+                <i class="fas fa-volume-down"></i>
+                <input type="range" id="volume-slider" min="0" max="100" value="30">
+                <i class="fas fa-volume-up"></i>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ======================== HERO SECTION ======================== -->
+<section id="home" class="section hero-section">
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+        <div class="hero-badge">
+            <i class="fas fa-graduation-cap"></i>
+            منصة الاستعداد للباكالوريا 2025
+        </div>
+        <h1 class="hero-title">
+            <span class="gradient-text">طريقك نحو</span>
+            <br>
+            <span class="highlight-text">20/20</span>
+            <span class="gradient-text"> يبدأ من هنا</span>
+        </h1>
+        <p class="hero-description">
+            منصة تعليمية تفاعلية متكاملة مصممة خصيصاً لتلاميذ الثانية بكالوريا
+            <strong>علوم فيزيائية (BIOF)</strong>
+            — ملخصات، فيديوهات، امتحانات وطنية، وأدوات ذكية
+        </p>
+
+        <div class="hero-stats">
+            <div class="stat-card">
+                <div class="stat-number" id="stat-lessons">0</div>
+                <div class="stat-label">درس</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="stat-exams">0</div>
+                <div class="stat-label">امتحان وطني</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="stat-videos">0</div>
+                <div class="stat-label">فيديو مختار</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="stat-hours">0</div>
+                <div class="stat-label">ساعة محتوى</div>
+            </div>
+        </div>
+
+        <div class="hero-actions">
+            <a href="#semester1" class="btn btn-primary btn-lg">
+                <i class="fas fa-rocket"></i> ابدأ المراجعة الآن
+            </a>
+            <a href="#tools" class="btn btn-outline btn-lg">
+                <i class="fas fa-tools"></i> الأدوات الذكية
+            </a>
+        </div>
+
+        <!-- Overall Progress -->
+        <div class="overall-progress">
+            <h3><i class="fas fa-chart-line"></i> تقدمك العام</h3>
+            <div class="progress-grid">
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span class="progress-subject">
+                            <i class="fas fa-atom" style="color: #60a5fa;"></i> الفيزياء
+                        </span>
+                        <span class="progress-percent" id="physics-progress-pct">0%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill physics-bar" id="physics-progress" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span class="progress-subject">
+                            <i class="fas fa-flask" style="color: #34d399;"></i> الكيمياء
+                        </span>
+                        <span class="progress-percent" id="chemistry-progress-pct">0%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill chemistry-bar" id="chemistry-progress" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span class="progress-subject">
+                            <i class="fas fa-square-root-alt" style="color: #f472b6;"></i> الرياضيات
+                        </span>
+                        <span class="progress-percent" id="math-progress-pct">0%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill math-bar" id="math-progress" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span class="progress-subject">
+                            <i class="fas fa-dna" style="color: #fbbf24;"></i> علوم الحياة والأرض
+                        </span>
+                        <span class="progress-percent" id="svt-progress-pct">0%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill svt-bar" id="svt-progress" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== SEMESTER 1 ======================== -->
+<section id="semester1" class="section semester-section">
+    <div class="section-container">
+        <div class="section-header">
+            <div class="section-badge">الدورة الأولى</div>
+            <h2 class="section-title">
+                <i class="fas fa-book-open"></i> دروس الدورة الأولى
+            </h2>
+            <p class="section-subtitle">جميع الدروس مرتبة حسب المنهاج الدراسي الرسمي BIOF</p>
+        </div>
+
+        <!-- Subject Tabs -->
+        <div class="subject-tabs" id="s1-tabs">
+            <button class="subject-tab active" data-subject="physics" data-semester="1">
+                <i class="fas fa-atom"></i> الفيزياء
+            </button>
+            <button class="subject-tab" data-subject="chemistry" data-semester="1">
+                <i class="fas fa-flask"></i> الكيمياء
+            </button>
+            <button class="subject-tab" data-subject="math" data-semester="1">
+                <i class="fas fa-square-root-alt"></i> الرياضيات
+            </button>
+            <button class="subject-tab" data-subject="svt" data-semester="1">
+                <i class="fas fa-dna"></i> علوم الحياة والأرض
+            </button>
+        </div>
+
+        <!-- Lessons Grid -->
+        <div class="lessons-grid" id="s1-lessons-grid">
+            <!-- Lessons will be injected by JavaScript -->
+        </div>
+    </div>
+</section>
+
+<!-- ======================== SEMESTER 2 ======================== -->
+<section id="semester2" class="section semester-section">
+    <div class="section-container">
+        <div class="section-header">
+            <div class="section-badge badge-green">الدورة الثانية</div>
+            <h2 class="section-title">
+                <i class="fas fa-book"></i> دروس الدورة الثانية
+            </h2>
+            <p class="section-subtitle">الجزء الثاني من البرنامج — التحضير للامتحان الوطني</p>
+        </div>
+
+        <div class="subject-tabs" id="s2-tabs">
+            <button class="subject-tab active" data-subject="physics" data-semester="2">
+                <i class="fas fa-atom"></i> الفيزياء
+            </button>
+            <button class="subject-tab" data-subject="chemistry" data-semester="2">
+                <i class="fas fa-flask"></i> الكيمياء
+            </button>
+            <button class="subject-tab" data-subject="math" data-semester="2">
+                <i class="fas fa-square-root-alt"></i> الرياضيات
+            </button>
+            <button class="subject-tab" data-subject="svt" data-semester="2">
+                <i class="fas fa-dna"></i> علوم الحياة والأرض
+            </button>
+        </div>
+
+        <div class="lessons-grid" id="s2-lessons-grid">
+            <!-- Lessons will be injected by JavaScript -->
+        </div>
+    </div>
+</section>
+
+<!-- ======================== EXAMS SECTION ======================== -->
+<section id="exams" class="section exams-section">
+    <div class="section-container">
+        <div class="section-header">
+            <div class="section-badge badge-red">الامتحانات الوطنية</div>
+            <h2 class="section-title">
+                <i class="fas fa-file-alt"></i> مكتبة الامتحانات الوطنية
+            </h2>
+            <p class="section-subtitle">
+                جميع الامتحانات الوطنية من 2016 إلى 2025 مع عناصر الإجابة
+            </p>
+        </div>
+
+        <!-- Exam Filters -->
+        <div class="exam-filters">
+            <div class="filter-group">
+                <label><i class="fas fa-calendar"></i> السنة:</label>
+                <select id="exam-year-filter">
+                    <option value="all">جميع السنوات</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label><i class="fas fa-flag"></i> الدورة:</label>
+                <select id="exam-session-filter">
+                    <option value="all">الكل</option>
+                    <option value="normale">الدورة العادية</option>
+                    <option value="rattrapage">الدورة الاستدراكية</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label><i class="fas fa-book"></i> المادة:</label>
+                <select id="exam-subject-filter">
+                    <option value="all">الكل</option>
+                    <option value="physique">الفيزياء والكيمياء</option>
+                    <option value="math">الرياضيات</option>
+                    <option value="svt">علوم الحياة والأرض</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Exams Grid -->
+        <div class="exams-grid" id="exams-grid">
+            <!-- Exams will be injected by JavaScript -->
+        </div>
+    </div>
+</section>
+
+<!-- ======================== TOOLS SECTION ======================== -->
+<section id="tools" class="section tools-section">
+    <div class="section-container">
+        <div class="section-header">
+            <div class="section-badge badge-purple">الأدوات الذكية</div>
+            <h2 class="section-title">
+                <i class="fas fa-tools"></i> أدوات المراجعة الذكية
+            </h2>
+        </div>
+
+        <div class="tools-grid">
+            <!-- Pomodoro Timer -->
+            <div class="tool-card pomodoro-card">
+                <div class="tool-icon">
+                    <i class="fas fa-hourglass-half"></i>
+                </div>
+                <h3>مؤقت بومودورو</h3>
+                <p>تقنية إدارة الوقت: 25 دقيقة تركيز + 5 دقائق راحة</p>
+
+                <div class="pomodoro-display">
+                    <div class="pomodoro-circle" id="pomodoro-circle">
+                        <svg viewBox="0 0 200 200">
+                            <circle class="pomodoro-bg" cx="100" cy="100" r="90"/>
+                            <circle class="pomodoro-progress" id="pomodoro-svg-progress" cx="100" cy="100" r="90"/>
+                        </svg>
+                        <div class="pomodoro-time" id="pomodoro-time">25:00</div>
+                        <div class="pomodoro-label" id="pomodoro-label">وقت العمل</div>
+                    </div>
+                </div>
+
+                <div class="pomodoro-controls">
+                    <button class="btn btn-primary" id="pomodoro-start">
+                        <i class="fas fa-play"></i> ابدأ
+                    </button>
+                    <button class="btn btn-outline" id="pomodoro-pause" disabled>
+                        <i class="fas fa-pause"></i> إيقاف مؤقت
+                    </button>
+                    <button class="btn btn-danger" id="pomodoro-reset">
+                        <i class="fas fa-redo"></i> إعادة
+                    </button>
+                </div>
+
+                <div class="pomodoro-stats">
+                    <div class="pomo-stat">
+                        <span class="pomo-stat-num" id="pomo-sessions">0</span>
+                        <span class="pomo-stat-label">جلسة مكتملة</span>
+                    </div>
+                    <div class="pomo-stat">
+                        <span class="pomo-stat-num" id="pomo-total-time">0</span>
+                        <span class="pomo-stat-label">دقيقة دراسة</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Tutor -->
+            <div class="tool-card ai-tutor-card">
+                <div class="tool-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>المساعد الذكي — اشرح لي</h3>
+                <p>اكتب سؤالك أو المفهوم الذي لم تفهمه وسأوجهك للفهم</p>
+
+                <div class="ai-chat-container" id="ai-chat-container">
+                    <div class="ai-messages" id="ai-messages">
+                        <div class="ai-message bot-message">
+                            <div class="message-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <p>مرحباً! 👋 أنا مساعدك الذكي. اسألني عن أي مفهوم في الفيزياء، الكيمياء، الرياضيات أو علوم الحياة والأرض. سأساعدك على الفهم!</p>
+                                <div class="quick-questions">
+                                    <p><strong>أسئلة سريعة:</strong></p>
+                                    <button class="quick-q" data-q="ما هو جدول التقدم في الكيمياء؟">جدول التقدم</button>
+                                    <button class="quick-q" data-q="اشرح لي قانون نيوتن الثاني">قانون نيوتن الثاني</button>
+                                    <button class="quick-q" data-q="ما الفرق بين المتتالية الحسابية والهندسية؟">المتتاليات</button>
+                                    <button class="quick-q" data-q="كيف أحسب pH محلول حمضي؟">حساب pH</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-input-container">
+                        <input type="text" id="ai-input" placeholder="اكتب سؤالك هنا..." autocomplete="off">
+                        <button id="ai-send-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formula Sheet -->
+            <div class="tool-card formula-card">
+                <div class="tool-icon">
+                    <i class="fas fa-superscript"></i>
+                </div>
+                <h3>ورقة الصيغ والقوانين</h3>
+                <p>جميع القوانين والعلاقات الأساسية في ملف واحد</p>
+
+                <div class="formula-tabs">
+                    <button class="formula-tab active" data-formula="physics-formulas">
+                        <i class="fas fa-atom"></i> فيزياء
+                    </button>
+                    <button class="formula-tab" data-formula="chemistry-formulas">
+                        <i class="fas fa-flask"></i> كيمياء
+                    </button>
+                    <button class="formula-tab" data-formula="math-formulas">
+                        <i class="fas fa-square-root-alt"></i> رياضيات
+                    </button>
+                </div>
+
+                <div class="formula-content" id="formula-content">
+                    <!-- Formulas injected by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== NOTES SECTION ======================== -->
+<section id="notes" class="section notes-section">
+    <div class="section-container">
+        <div class="section-header">
+            <div class="section-badge badge-yellow">ملاحظاتي الشخصية</div>
+            <h2 class="section-title">
+                <i class="fas fa-sticky-note"></i> دفتر الملاحظات السريعة
+            </h2>
+            <p class="section-subtitle">اكتب ملاحظاتك هنا — تُحفظ تلقائياً في متصفحك</p>
+        </div>
+
+        <div class="notes-container">
+            <div class="notes-toolbar">
+                <button class="btn btn-primary" id="add-note-btn">
+                    <i class="fas fa-plus"></i> ملاحظة جديدة
+                </button>
+                <div class="notes-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="notes-search-input" placeholder="ابحث في ملاحظاتك...">
+                </div>
+                <button class="btn btn-outline" id="export-notes-btn">
+                    <i class="fas fa-download"></i> تصدير
+                </button>
+            </div>
+
+            <div class="notes-grid" id="notes-grid">
+                <!-- Notes will be injected by JavaScript -->
+            </div>
+        </div>
+
+        <!-- New Note Modal -->
+        <div class="modal-overlay" id="note-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-edit"></i> ملاحظة جديدة</h3>
+                    <button class="close-modal" id="close-note-modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="note-title-input" placeholder="عنوان الملاحظة..." class="modal-input">
+                    <select id="note-subject-select" class="modal-input">
+                        <option value="general">عام</option>
+                        <option value="physics">الفيزياء</option>
+                        <option value="chemistry">الكيمياء</option>
+                        <option value="math">الرياضيات</option>
+                        <option value="svt">علوم الحياة والأرض</option>
+                    </select>
+                    <textarea id="note-content-input" placeholder="اكتب ملاحظتك هنا..." class="modal-textarea" rows="8"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="save-note-btn">
+                        <i class="fas fa-save"></i> حفظ
+                    </button>
+                    <button class="btn btn-outline" id="cancel-note-btn">
+                        إلغاء
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== PDF VIEWER MODAL ======================== -->
+<div class="modal-overlay" id="pdf-modal">
+    <div class="modal-content pdf-modal-content">
+        <div class="modal-header">
+            <h3 id="pdf-modal-title"><i class="fas fa-file-pdf"></i> عرض الملف</h3>
+            <div class="pdf-modal-actions">
+                <a href="#" id="pdf-download-link" class="btn btn-primary btn-sm" download>
+                    <i class="fas fa-download"></i> تحميل
+                </a>
+                <button class="close-modal" id="close-pdf-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="modal-body pdf-modal-body">
+            <iframe id="pdf-viewer-frame" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
+<!-- ======================== VIDEO MODAL ======================== -->
+<div class="modal-overlay" id="video-modal">
+    <div class="modal-content video-modal-content">
+        <div class="modal-header">
+            <h3 id="video-modal-title"><i class="fas fa-play-circle"></i> شرح الدرس</h3>
+            <button class="close-modal" id="close-video-modal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body video-modal-body">
+            <div class="video-list" id="video-list">
+                <!-- Videos injected by JS -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ======================== FOOTER ======================== -->
+<footer id="footer">
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h3><i class="fas fa-atom"></i> BacPhysique Hub</h3>
+                <p>منصة تعليمية مجانية لتلاميذ الثانية بكالوريا علوم فيزيائية</p>
+            </div>
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <a href="#semester1">الدورة الأولى</a>
+                    <a href="#semester2">الدورة الثانية</a>
+                    <a href="#exams">الامتحانات</a>
+                    <a href="#tools">الأدوات</a>
+                </div>
+                <div class="footer-col">
+                    <h4>موارد مفيدة</h4>
+                    <a href="https://men.gov.ma" target="_blank">وزارة التربية الوطنية</a>
+                    <a href="https://taalim.ma" target="_blank">منظومة مسار</a>
+                    <a href="https://www.9alami.com" target="_blank">9alami.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>💡 صُنع بـ ❤️ لتلاميذ المغرب — مشروع مجاني ومفتوح المصدر</p>
+            <p class="footer-copy">© 2025 BacPhysique Hub. جميع الحقوق محفوظة</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ======================== SCROLL TO TOP ======================== -->
+<button id="scroll-top-btn" title="العودة للأعلى">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+<script src="app.js"></script>
+</body>
+</html>
